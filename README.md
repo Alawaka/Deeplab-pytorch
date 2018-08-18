@@ -18,17 +18,18 @@ With my code, you can:
 * **opencv (cv2)**
 * **tensorboard**
 * **tensorboardX** (This library could be skipped if you do not use SummaryWriter)
+* **torchvision**
+* **PIL**
+* **numpy**
 
 ## Datasets:
 
-I used 4 different datases: VOC2007, VOC2012, COCO2014 and COCO2017. Statistics of datasets I used for experiments is shown below
+I used 2 different datases: VOC2012 and VOCaugmented (VOC2007 + 2012) Statistics of datasets I used for experiments is shown below
 
-| Dataset                | Classes | #Train images/objects | #Validation images/objects |
-|------------------------|:---------:|:-----------------------:|:----------------------------:|
-| VOC2007                |    20   |      5011/12608       |           4952/-           |
-| VOC2012                |    20   |      5717/13609       |           5823/13841       |
-| COCO2014               |    80   |         83k/-         |            41k/-           |
-| COCO2017               |    80   |         118k/-        |             5k/-           |
+| Dataset                | #Classes | #Train images | #Validation images |
+|------------------------|:----------:|:---------------:|:--------------------:|
+| VOC2012                |    20    |      5011     |        1449        |
+| VOCaugmented           |    20    |      1464     |        1449        |
 
 Create a data folder under the repository,
 
@@ -46,78 +47,37 @@ mkdir data
   │   ├── ImageSets
   │   ├── JPEGImages
   │   └── ...
-  └── VOC2012
-      ├── Annotations  
-      ├── ImageSets
-      ├── JPEGImages
+  ├── VOC2012
+  │   ├── Annotations  
+  │   ├── ImageSets
+  │   ├── JPEGImages
+  │   └── ...
+  └── VOCaugmented
+      ├── gt  
+      ├── img
+      ├── list
       └── ...
   ```
-  
-- **COCO**:
-  Download the coco images and annotations from [coco website](http://cocodataset.org/#download). Make sure to put the files as the following structure:
-  ```
-  COCO
-  ├── annotations
-  │   ├── instances_train2014.json
-  │   ├── instances_train2017.json
-  │   ├── instances_val2014.json
-  │   └── instances_val2017.json
-  │── images
-  │   ├── train2014
-  │   ├── train2017
-  │   ├── val2014
-  │   └── val2017
-  └── anno_pickle
-      ├── COCO_train2014.pkl
-      ├── COCO_val2014.pkl
-      ├── COCO_train2017.pkl
-      └── COCO_val2017.pkl
-  ```
-  
-## Setting:
-
-* **Model structure**: In compared to the paper, I changed structure of top layers, to make it converge better. You could see the detail of my YoloNet in **src/yolo_net.py**.
-* **Data augmentation**: I performed dataset augmentation, to make sure that you could re-trained my model with small dataset (~500 images). Techniques applied here includes HSV adjustment, crop, resize and flip with random probabilities
-* **Loss**: The losses for object and non-objects are combined into a single loss in my implementation
-* **Optimizer**: I used SGD optimizer and my learning rate schedule is as follows: 
-
-|         Epoches        | Learning rate |
-|------------------------|:---------------:|
-|          0-4           |      1e-5     |
-|          5-79          |      1e-4     |
-|          80-109        |      1e-5     |
-|          110-end       |      1e-6     |
 
 * In my implementation, in every epoch, the model is saved only when its loss is the lowest one so far. You could also use early stopping, which could be triggerred by specifying a positive integer value for parameter **es_patience**, to stop training process when validation loss has not been improved for **es_patience** epoches.
 ## Training
 
-For each dataset, I provide 2 different pre-trained models, which I trained with corresresponding dataset:
-- **whole_model_trained_yolo_xxx**: The whole trained model.
-- **only_params_trained_yolo_xxx**: The trained parameters only.
+I provide my pre-trained model name **vietnh_trained_deeplab_voc**. You could put it in the folder **trained_models/**, and load it before training your new model, for faster convergence.
 
-You could specify which trained model file you want to use, by the parameter **pre_trained_model_type**. The parameter **pre_trained_model_path** then is the path to that file.
-
-If you want to train a model with a VOC dataset, you could run:
-- **python3 train_voc.py --year year**: For example, python train_voc.py --year 2012
-
-If you want to train a model with a COCO dataset, you could run:
-- **python3 train_coco.py --year year**: For example, python train_coco.py --year 2014
-
-If you want to train a model with both COCO datasets (training set = train2014 + val2014 + train2017, val set = val2017), you could run:
-- **python3 train_coco_all.py**
+If you want to train a new model, you could run:
+- **python3 train_voc.py --dataset dataset**: For example, python train_voc.py --dataset augmentedvoc
 
 ## Test
 
-For each type of dataset (VOC or COCO), I provide 3 different test scripts:
+By default, my test script will load trained model from folder **trained_models/**. You of course could change it to other folder which contains your trained model(s).
+
+I provide 2 different test scripts:
 
 If you want to test a trained model with a standard VOC dataset, you could run:
-- **python3 test_xxx_dataset.py --year year**: For example, python test_coco_dataset.py --year 2014
+- **python3 test_voc.py --year year**: For example, python3 test_voc.py --year 2012
 
-If you want to test a model with some images, you could put them into the same folder, whose path is **path/to/input/folder**, then run:
-- **python3 test_xxx_images.py --input path/to/input/folder --output path/to/output/folder**: For example, python train_voc_images.py --input test_images --output test_images
-
-If you want to test a model with a video, you could run :
-- **python3 test_xxx_video.py --input path/to/input/file --output path/to/output/file**: For example, python test_coco_video --input test_videos/input.mp4 --output test_videos/output.mp4
+If you want to test a model with some images, you could put them into the folder **test_images/**, then run:
+- **python3 test_voc_single_images.py --input --output path/to/output/folder**: For example, python3 test_voc_single_images.py --output predictions. For easy comparison, not only output images are created, but input images are also copied to output folder
 
 You could find all trained models I have trained in [link](https://drive.google.com/open?id=1gx1qvgu8rZRtEgkCMA9KqJZtFwjr8fc-)
 
