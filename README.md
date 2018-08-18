@@ -87,16 +87,10 @@ I trained models in 2 machines, one with NVIDIA TITAN X 12gb GPU and the other w
 
 The training/test loss curves for each experiment are shown below:
 
-- **VOC2007**
-![voc2007 loss](demo/voc2007.png) 
 - **VOC2012**
-![voc2012 loss](demo/voc2012.png)
-- **COCO2014**
-![coco2014 loss](demo/coco2014.png)
-- **COCO2014+2017**
-![coco2014_2017 loss](demo/coco2014_2017.png)
-
-Statistics for mAP will be updated soon ...
+![voc2012 loss](demo/voc2012_loss.png)
+- **VOCaugmented**
+![vocaugmented loss](demo/vocaugmented_loss.png)
 
 ## Results
 
@@ -113,4 +107,3 @@ Some output predictions for experiments for each dataset are shown below:
 <img src="demo/vocaugmented_1.jpg" width="400"> <img src="demo/vocaugmented_1_prediction.jpg" width="400">
 <img src="demo/vocaugmented_2.jpg" width="400"> <img src="demo/vocaugmented_2_prediction.jpg" width="400">
 <img src="demo/vocaugmented_3.jpg" width="400"> <img src="demo/vocaugmented_3_prediction.jpg" width="400">
-
