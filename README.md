@@ -110,5 +110,7 @@ Some output predictions for experiments for each dataset are shown below:
 
 - **VOCaugmented**
 
-<img src="demo/voc2012_1.jpg" width="280"> <img src="demo/voc2012_2.jpg" width="280"> <img src="demo/voc2012_3.jpg" width="280">
+<img src="demo/vocaugmented_1.jpg" width="400"> <img src="demo/vocaugmented_1_prediction.jpg" width="400">
+<img src="demo/vocaugmented_2.jpg" width="400"> <img src="demo/vocaugmented_2_prediction.jpg" width="400">
+<img src="demo/vocaugmented_3.jpg" width="400"> <img src="demo/vocaugmented_3_prediction.jpg" width="400">
 
