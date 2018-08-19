@@ -99,10 +99,12 @@ Some output predictions for experiments for each dataset are shown below:
 
 - **VOC2012**
 
-<img src="demo/voc2012_1.jpg" width="280"> <img src="demo/voc2012_2.jpg" width="280"> <img src="demo/voc2012_3.jpg" width="280">
-<img src="demo/voc2012_1_prediction.jpg" width="280"> <img src="demo/voc2012_2_prediction.jpg" width="280"> <img src="demo/voc2012_3_prediction.jpg" width="280">
+<img src="demo/voc2012_1.jpg" width="300">  <img src="demo/voc2012_1_prediction.jpg" width="300">
+<img src="demo/voc2012_2.jpg" width="300">  <img src="demo/voc2012_2_prediction.jpg" width="300">
+<img src="demo/voc2012_3.jpg" width="300">  <img src="demo/voc2012_3_prediction.jpg" width="300">
 
 - **VOCaugmented**
 
-<img src="demo/vocaugmented_1.jpg" width="280"> <img src="demo/vocaugmented_2.jpg" width="280"> <img src="demo/vocaugmented_3.jpg" width="280">
-<img src="demo/vocaugmented_1_prediction.jpg" width="280"> <img src="demo/vocaugmented_2_prediction.jpg" width="280"> <img src="demo/vocaugmented_3_prediction.jpg" width="280">
+<img src="demo/vocaugmented_1.jpg" width="300">  <img src="demo/vocaugmented_1_prediction.jpg" width="300">
+<img src="demo/vocaugmented_2.jpg" width="300">  <img src="demo/vocaugmented_2_prediction.jpg" width="300">
+<img src="demo/vocaugmented_3.jpg" width="300">  <img src="demo/vocaugmented_3_prediction.jpg" width="300">
