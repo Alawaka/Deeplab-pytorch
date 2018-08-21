@@ -61,6 +61,11 @@ mkdir data
 Note: You need to put ALL images from 2 dataset VOC2007 and VOC2012 into folder **VOCdevkit/VOCaugmented/img/**
 
 * In my implementation, in every epoch, the model is saved only when its loss is the lowest one so far. You could also use early stopping, which could be triggerred by specifying a positive integer value for parameter **es_patience**, to stop training process when validation loss has not been improved for **es_patience** epoches.
+
+## Trained models
+
+You could find all trained models I have trained in [Deeplab trained models](https://drive.google.com/open?id=1haaIxDJTEfV6ZndgHAzFp_UavDz72nvx)
+
 ## Training
 
 I provide my pre-trained model name **vietnh_trained_deeplab_voc**. You could put it in the folder **trained_models/**, and load it before training your new model, for faster convergence.
