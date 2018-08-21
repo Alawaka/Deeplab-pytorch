@@ -85,8 +85,6 @@ If you want to test a trained model with a standard VOC dataset, you could run:
 If you want to test a model with some images, you could put them into the folder **test_images/**, then run:
 - **python3 test_voc_single_images.py --input --output path/to/output/folder**: For example, python3 test_voc_single_images.py --output predictions. For easy comparison, not only output images are created, but input images are also copied to output folder
 
-You could find all trained models I have trained in [link](https://drive.google.com/open?id=1gx1qvgu8rZRtEgkCMA9KqJZtFwjr8fc-)
-
 ## Experiments:
 
 I trained models in 2 machines, one with NVIDIA TITAN X 12gb GPU and the other with NVIDIA quadro 6000 24gb GPU.
