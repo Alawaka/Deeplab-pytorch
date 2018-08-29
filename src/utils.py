@@ -1,3 +1,6 @@
+"""
+@author: Viet Nguyen <nhviet1009@gmail.com>
+"""
 from torch.utils.data.dataloader import default_collate
 import torch.nn as nn
 import torch
